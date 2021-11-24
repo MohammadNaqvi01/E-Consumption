@@ -1,0 +1,60 @@
+{% extends 'app/base.htm' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+ <div class="row my-sm-2">
+  <div class="col-sm-6 offset-sm-3">
+<form method="post" class="shadow p-5">
+{% csrf_token %}
+<h2 class="text-danger text-center">E Consumption</h2>
+
+
+
+
+{% for fm in form %}
+
+
+{{fm.label}}{{fm}}<br><small class="text-danger">{{fm.errors|striptags}}</small>
+
+{% endfor %}
+
+
+
+ <button id="next" type="submit" class="btn btn-outline-danger ">SignUp</button>
+  {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <p class="alert alert-danger my-3">{{error}}</p>
+    {% endfor %}
+    {% endif %}
+
+</form>
+</div>
+</div>
+</div>
+
+{% endblock content %}
+
+
+{% block script %}
+
+<script src="{% static 'app/js/myscript.js' %}"></script>
+
+{% endblock script %}

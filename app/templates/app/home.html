@@ -1,0 +1,50 @@
+
+{% extends 'app/base.htm' %}
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+
+
+{% block content %}
+
+<div class="row my-4">
+
+  <div class="col text-center text-success ">
+   <strong> <h2>A step towards a better Tomorrow</h2></strong>
+
+  </div>
+
+</div>
+
+<div class="take">
+{% for anc in appliances %}
+
+<div class="card offset-5" style="width: 18rem;">
+  <img class="card-img-top" src="{{anc.image.url}}" alt="Card image cap">
+  <div class="card-body text-center">
+   <div id="{{anc.name}}_{{anc.kwh}}"> 
+    <button id="On{{forloop.counter}}" class="btn" onclick="myfunc(this.id)" >  On </button>
+    <button id="Off{{forloop.counter}}" class="btn" onclick="myfunc(this.id)" >  Off </button>
+  </div> 
+</div>  
+</div>
+</div>
+<br>
+{% endfor %}
+<div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+{% block script %}<script src="{% static 'app/js/myscript.js' %}"></script>
+
+{% endblock script %}
